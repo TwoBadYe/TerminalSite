@@ -5,14 +5,29 @@ body {
   text-shadow: 0 0 5px #00FF00;
   position: relative;
   overflow: hidden;
+
 }
 pre {
   font-family: 'VT323', monospace;
-  white-space: pre; /* ensures whitespace is respected */
   font-size: 16px;
   line-height: 1.2;
   color: #00FF00;
   text-shadow: 0 0 5px #00FF00;
+}
+
+body, html {
+  height: 100%;
+}
+
+
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .scanlines::before {
@@ -24,12 +39,16 @@ pre {
   height: 100%;
   background-image: repeating-linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.05) 1px,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
     transparent 1px,
-    transparent 2px
+    transparent 3px
   );
-  pointer-events: none;
+}
+
+.terminal {
+  position: relative;
+  z-index: 1;
 }
 .blinking-cursor {
   display: inline-block;
@@ -53,6 +72,7 @@ pre {
   font-size: inherit;
   outline: none;
   flex-grow: 1;
+  
 }
 
 a {
@@ -72,3 +92,13 @@ a:hover {
 a:active {
   color: #00FF00;
 }
+.js{
+  margin-left: 1em; /* or 2em for more indentation */
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.terminal {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
